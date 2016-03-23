@@ -31,9 +31,14 @@ Getting Started
 ### Development
 
 + Fork the repository
-+ Run the app with `npm start`
-+ Access `localhost:9000` or shown host with port in the prompt
++ Create your feature branch (`git checkout -b feature-name`)
++ Make your changes
++ Run the app (`npm start` or later `npm test`)
 + To build the distribution release, use `npm build`
++ Access `localhost:9000` or shown host with port in the prompt to view
++ Commit your changes (`git commit -a`)
++ Push to the branch (`git push origin feature-name`)
++ Create new Pull Request
 
 ### Deployment
 
