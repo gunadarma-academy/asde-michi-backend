@@ -10,6 +10,8 @@ This application is using Node.js and npm. Please follow the getting started gui
 
 The broader Technical Documentation that isn't concretely about only the application either the backend or frontend itself, is in the [parent repo (asde-michi)](https://github.com/gunadarma-academy/asde-michi#technical-documentation).
 
+*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
 Getting Started
 ---------------
 
@@ -35,20 +37,52 @@ Getting Started
 
 + Fork the repository
 + Create your feature branch (`git checkout -b feature-name`)
-+ Make your changes
++ Make your changes with your editor (`vim` or `atom` or `sublime`)
 + Run the app (`npm start` or later `npm test`)
 + To build the distribution release, use `npm build`
-+ Access `localhost:9000` or shown host with port in the prompt to view
++ Access `{host}:{port}` or that already shown in the prompt to view
 + Commit your changes (`git commit -a`)
 + Push to the branch (`git push origin feature-name`)
 + Create new Pull Request
 
+### Usage
+
+With only npm:
+
+```
+npm install
+npm start
+```
+
+With pm2:
+
+```
+npm install -g pm2
+pm2 start ecosystem.json
+```
+
+Access `http://{host}:{port}/api`
+
+Read the complete [REST API endpoint available here](API.markdown).
+
 ### Deployment
+
+With pm2:
+
+```
+pm2 deploy ecosystem.json development
+pm2 deploy ecosystem.json staging
+pm2 deploy ecosystem.json production
+```
+
+[TODO]
 
 + Push to designated server with `git push server master`
 + Deploy to a configured SaaS with something like `heroku push`
 
 **Notes:** In the middle of the development, it's possible to use Continuous Integration (CI) or even Continuous Delivery (CD) to automate the build and deployment.
+
+*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
 License
 -------
