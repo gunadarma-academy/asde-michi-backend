@@ -15,16 +15,19 @@ Getting Started
 
 ### Requirements
 
-+ Terminal and shell (bash or zsh)
-+ Git v2.0
-+ Code editor
++ Terminal and shell (bash or [zsh](http://www.zsh.org))
++ [Git](http://git-scm.com) v2.x
++ Modern code editor ([Vim](http://vim.org), [Atom](https://atom.io), [Sublime](https://sublimetext.com))
 + Modern web browser (Google Chrome or Firefox)
-+ HTTP client app like cURL or Postman
-+ Node.js LTS, currently version `4.4.x`
++ HTTP client app like [cURL](https://curl.haxx.se) or [Postman](https://getpostman.com)
++ [Node.js](http://nodejs.org): JavaScript in the server/backend LTS, currently version `4.4.x`
++ [Hapi](http://hapijs.com): A very well designed server framework that is easy to understand, easy to create your own plugins, scales very well, cache options built in, and more
++ [Gulp](http://gulpjs.com): A task runner for your assets and more
++ No CSS framework here. Choose your own in the frontend you build
 
 ### Installation
 
-+ Install Node.js from your prefered way, or from http://nodejs.org
++ Install Node.js from your prefered way, or from <http://nodejs.org>
   + It's also recommended to [use Node Version Manager (nvm)](https://github.com/creationix/nvm)
 + Install required npm packages/modules with `npm install` within this repo
 
