@@ -62,6 +62,18 @@ server.register([Bell, Cookie], function (err) {
 	
 	server.route({
         method: 'GET',
+        path: '/logout',
+        config: {
+            auth: 'session',
+            handler: function (request, reply) {
+                request.auth.session.clear();
+                return reply.redirect('/');
+            }
+        }
+    });
+	
+	server.route({
+        method: 'GET',
         path: '/',
         config: {
 			auth: {
@@ -71,7 +83,7 @@ server.register([Bell, Cookie], function (err) {
             handler: function (request, reply) {
                 if(request.auth.isAuthenticated) {
                     var profile = request.auth.credentials
-                    reply('<h1>Session</h1><pre>' + JSON.stringify(request.auth.credentials, null, 4) + '</pre>')
+                    reply('<h1>Session</h1><pre>' + JSON.stringify(request.auth.credentials, null, 4) + '</pre>' + 'Click <a href="/logout">here</a> to logout.')
                 }
                 else {
                     reply('<h1><a href="/login">Login Via Twitter</a></h1>')
