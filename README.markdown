@@ -32,48 +32,35 @@ Getting Started
 + Install Node.js from your prefered way, or from <http://nodejs.org>
   + It's also recommended to [use Node Version Manager (nvm)](https://github.com/creationix/nvm)
 + Install required npm packages/modules with `npm install` within this repo
++ Install pm2 globally (`npm install -g pm2`)
 
 ### Development
 
 + Fork the repository
 + Create your feature branch (`git checkout -b feature-name`)
 + Make your changes with your editor (`vim` or `atom` or `sublime`)
-+ Run the app (`npm start` or later `npm test`)
-+ To build the distribution release, use `npm build`
-+ Access `{host}:{port}` or that already shown in the prompt to view
 + Commit your changes (`git commit -a`)
 + Push to the branch (`git push origin feature-name`)
 + Create new Pull Request
 
-### Usage
+### Usage and Deployment
 
-With only npm:
-
-```
-npm install
-npm start
-```
-
-With pm2:
+Use `npm run-script <script-name>` for below:
 
 ```
-npm install -g pm2
-pm2 start ecosystem.json
+start: Start ecosystem.json
+stop: Stop ecosystem.json
+deploy-production-setup: Setup the production
+deploy-production: Deploy to production
+deploy-staging-setup: Setup the staging
+deploy-staging: Deploy to staging
+deploy-development-setup: Setup the development
+deploy-development: Deploy to development
 ```
 
-Access `http://{host}:{port}/api`
+Access `http://{host}:{port}/{api_route}` or that already shown in the prompt to view. Read the complete [REST API endpoint available here](API.markdown).
 
-Read the complete [REST API endpoint available here](API.markdown).
-
-### Deployment
-
-With pm2:
-
-```
-pm2 deploy ecosystem.json development
-pm2 deploy ecosystem.json staging
-pm2 deploy ecosystem.json production
-```
+Notice that you should have a proper access to the server. It's recommended to use SSH key that is already added/registered there.
 
 [TODO]
 

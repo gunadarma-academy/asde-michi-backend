@@ -1,0 +1,46 @@
+{
+  "name": "arlin-hapi",
+  "version": "0.1.0",
+  "description": "Arlin backend application by Michi",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2 start ecosystem.json",
+    "stop": "pm2 start ecosystem.json",
+    "deploy-production-setup": "pm2 deploy ecosystem.json production setup",
+    "deploy-production": "pm2 deploy ecosystem.json production",
+    "deploy-staging-setup": "pm2 deploy ecosystem.json staging setup",
+    "deploy-staging": "pm2 deploy ecosystem.json staging",
+    "deploy-development-setup": "pm2 deploy ecosystem.json development setup",
+    "deploy-development": "pm2 deploy ecosystem.json development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gunadarma-academy/asde-michi-app.git"
+  },
+  "keywords": [
+    "arlin",
+    "backend",
+    "michi",
+    "hapi",
+    "nodejs",
+    "javascript",
+    "api"
+  ],
+  "author": "Arlin by Michi <admin@arlin.link>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gunadarma-academy/asde-michi/issues"
+  },
+  "homepage": "http://arlin.link",
+  "dependencies": {
+    "boom": "3.1.1",
+    "good": "6.4.0",
+    "good-console": "5.2.0",
+    "hapi": "13.0.0",
+    "hoek": "3.0.4",
+    "inert": "3.2.0",
+    "joi": "7.2.0",
+    "vision": "4.0.1"
+  }
+}
