@@ -75,6 +75,8 @@ pm2 deploy ecosystem.json staging
 pm2 deploy ecosystem.json production
 ```
 
+Notice that you should have a proper access to the server. It's recommended to use SSH key that is already added/registered.
+
 [TODO]
 
 + Push to designated server with `git push server master`
