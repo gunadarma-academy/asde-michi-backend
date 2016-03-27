@@ -60,7 +60,15 @@ deploy-development: Deploy to development
 
 Access `http://{host}:{port}/{api_route}` or that already shown in the prompt to view. Read the complete [REST API endpoint available here](API.markdown).
 
-Notice that you should have a proper access to the server. It's recommended to use SSH key that is already added/registered there. You might want to use `ssh-copy-id username@xx.xx.xx.xx` first.
+Notice that you should have a proper access to the server. It's recommended to use SSH key that is already added/registered there. You might want to use `ssh-copy-id username@xx.xx.xx.xx` first. SSH into that username, then edit its username's `.bashrc` to comment out:
+```
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+```
+to resolve non-interactive SSH connection from pm2.
 
 [TODO]
 
@@ -74,7 +82,8 @@ Notice that you should have a proper access to the server. It's recommended to u
 References
 ----------
 
-[How To Use PM2 to Setup a Node.js Production Environment on an Ubuntu VPS | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-use-pm2-to-setup-a-node-js-production-environment-on-an-ubuntu-vps)
++ [How To Use PM2 to Setup a Node.js Production Environment on an Ubuntu VPS | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-use-pm2-to-setup-a-node-js-production-environment-on-an-ubuntu-vps)
++ [post-deploy hook ignores PATH variable: bash: npm: command not found](https://github.com/Unitech/pm2-deploy/issues/41)
 
 *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
@@ -82,3 +91,4 @@ License
 -------
 
 Arlin App by Michi is Copyright (c) 2016 Michi Team and licenced under the MIT licence. All rights not explicitly granted in the MIT license are reserved. See the parent [LICENSE.markdown](https://github.com/gunadarma-academy/asde-michi/blob/master/LICENSE.markdown) file for more details.
+
