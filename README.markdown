@@ -60,7 +60,7 @@ deploy-development: Deploy to development
 
 Access `http://{host}:{port}/{api_route}` or that already shown in the prompt to view. Read the complete [REST API endpoint available here](API.markdown).
 
-Notice that you should have a proper access to the server. It's recommended to use SSH key that is already added/registered there.
+Notice that you should have a proper access to the server. It's recommended to use SSH key that is already added/registered there. You might want to use `ssh-copy-id username@xx.xx.xx.xx` first.
 
 [TODO]
 
@@ -68,6 +68,13 @@ Notice that you should have a proper access to the server. It's recommended to u
 + Deploy to a configured SaaS with something like `heroku push`
 
 **Notes:** In the middle of the development, it's possible to use Continuous Integration (CI) or even Continuous Delivery (CD) to automate the build and deployment.
+
+*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+References
+----------
+
+[How To Use PM2 to Setup a Node.js Production Environment on an Ubuntu VPS | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-use-pm2-to-setup-a-node-js-production-environment-on-an-ubuntu-vps)
 
 *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
