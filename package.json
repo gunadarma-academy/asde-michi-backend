@@ -2,9 +2,9 @@
   "name": "arlin-hapi",
   "version": "0.1.0",
   "description": "Arlin backend application by Michi",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "pm2 start ecosystem.json",
+    "start": "pm2 start ecosystem.json --watch",
     "stop": "pm2 start ecosystem.json",
     "deploy-production-setup": "pm2 deploy ecosystem.json production setup",
     "deploy-production": "pm2 deploy ecosystem.json production",
@@ -41,6 +41,10 @@
     "hoek": "3.0.4",
     "inert": "3.2.0",
     "joi": "7.2.0",
-    "vision": "4.0.1"
+    "vision": "4.0.1",
+	"bell": "^2.0.0-rc1",
+    "hapi": "^8.0.0-rc5",
+    "getconfig": "^1.0.0",
+    "hapi-auth-cookie": "^2.0.0-rc1"
   }
 }
