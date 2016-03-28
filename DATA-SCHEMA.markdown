@@ -10,7 +10,10 @@ Initial
 + _id: UUID
 + created_date: Date
 + updated_date: Date
++ twitter_id: String
++ twitter_username: String
 + username: String
++ avatar: String
 ```
 
 ### Questions

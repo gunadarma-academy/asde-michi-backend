@@ -5,12 +5,18 @@
    */
   apps: [
 
-    // First application
+    // Main application
     {
-      name: "arlin-app",
+      name: "arlin-hapi",
       script: "index.js",
       env: {
         COMMON_VARIABLE: "true"
+      },
+      env_development: {
+        NODE_ENV: "development"
+      },
+      env_staging: {
+        NODE_ENV: "staging"
       },
       env_production: {
         NODE_ENV: "production"
@@ -25,22 +31,33 @@
    */
   deploy: {
     development: {
-      user: "root",
+      user: "arlin",
       host: "128.199.216.87",
       ref: "origin/development",
       repo: "https://github.com/gunadarma-academy/asde-michi-app.git",
-      path: "/var/www/arlin.dev",
+      path: "/home/arlin/app/development",
       "post-deploy": "npm install ; pm2 startOrRestart ecosystem.json --env development",
       env: {
         NODE_ENV: "development"
       }
     },
+    staging: {
+      user: "arlin",
+      host: "128.199.216.87",
+      ref: "origin/staging",
+      repo: "https://github.com/gunadarma-academy/asde-michi-app.git",
+      path: "/home/arlin/app/staging",
+      "post-deploy": "npm install ; pm2 startOrRestart ecosystem.json --env staging",
+      env: {
+        NODE_ENV: "staging"
+      }
+    },
     production: {
-      user: "root",
+      user: "arlin",
       host: "128.199.216.87",
       ref: "origin/master",
       repo: "https://github.com/gunadarma-academy/asde-michi-app.git",
-      path: "/var/www/arlin",
+      path: "/home/arlin/app/production",
       "post-deploy": "npm install ; pm2 startOrRestart ecosystem.json --env production"
     }
   }
