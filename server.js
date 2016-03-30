@@ -8,32 +8,32 @@ var Config = require('getconfig');
 var server = new Hapi.Server();
 
 var dbOpts = {
-    "url": "mongodb://localhost:27017/arlin",
-    "settings": {
-        "db": {
-            "native_parser": false
-        }
+  "url": "mongodb://localhost:27017/arlin",
+  "settings": {
+    "db": {
+      "native_parser": false
     }
+  }
 };
 
-server.connection({ 
-  host: Config.hostname, 
-  port: Config.port 
+server.connection({
+  host: Config.hostname,
+  port: Config.port
 });
 
 server.register([{
-		register: Bell
+  register: Bell
 		}, {
-		register: Cookie
+  register: Cookie
 		}, {
-		register: HapiMongoDB,
-		options: dbOpts
+  register: HapiMongoDB,
+  options: dbOpts
 	}], function (err) {
 
   if (err) {
     throw err;
   }
-  
+
   server.auth.strategy('twitter', 'bell', {
     provider: 'twitter',
     password: Config.auth.twitter.password,
@@ -77,7 +77,7 @@ server.register([{
       }
     }
   });
-  
+
   server.route({
     method: 'GET',
     path: '/logout',
@@ -89,7 +89,7 @@ server.register([{
       }
     }
   });
-  
+
   server.route({
     method: 'GET',
     path: '/',
@@ -99,32 +99,37 @@ server.register([{
         mode: 'try'
       },
       handler: function (request, reply) {
-        if(request.auth.isAuthenticated) {
+        if (request.auth.isAuthenticated) {
           var profile = request.auth.credentials
-		  
-		///////////////////////////////////
-		var db = request.server.plugins['hapi-mongodb'].db;
-        var ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
-	
-		    db.collection('Users').findOne({  "_id" : new ObjectID(request.params.id) }, function(err, result) {
-				if (err) return reply(Boom.internal('Internal MongoDB error', err));
-				return db.collection('Users').insert([{"_id" : new ObjectID(request.params.id), "twitterID": profile.twitterId, "twitterName": profile.twitterName}]);
-			});
-			
-			console.log('Object ID:', ObjectID(request.params.id));
-			console.log('Profile:', profile);
-			/////////////////////////////
+
+          ///////////////////////////////////
+          var db = request.server.plugins['hapi-mongodb'].db;
+          var ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
+
+          db.collection('Users').findOne({
+            "_id": new ObjectID(request.params.id)
+          }, function (err, result) {
+            if (err) return reply(Boom.internal('Internal MongoDB error', err));
+            return db.collection('Users').insert([{
+              "_id": new ObjectID(request.params.id),
+              "twitterID": profile.twitterId,
+              "twitterName": profile.twitterName
+            }]);
+          });
+
+          console.log('Object ID:', ObjectID(request.params.id));
+          console.log('Profile:', profile);
+          /////////////////////////////
           reply('<h1>Session</h1><pre>' + JSON.stringify(request.auth.credentials, null, 4) + '</pre>' + 'Click <a href="/logout">here</a> to logout.')
-        }
-        else {
+        } else {
           reply('<h1><a href="/login">Login Via Twitter</a></h1>')
         }
       }
     }
   });
-  
+
   server.start(function (err) {
     console.log('Server started at:', server.info.uri);
   });
-  
+
 });
