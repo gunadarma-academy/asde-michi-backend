@@ -7,32 +7,28 @@ Base route: `/api`
 > We don't require strict authentication for accessing the API, since we're not planning to publicize it yet.  
 > All of our sorts are based on `creation_date` in descending order. Initially, we don't limit scope range and not even a quota.
 
-List of routes for basic actions:
+List of routes for basic actions of users, questions, answers:
 
-| Route   | HTTP | Description
-|---------|------|------------
-| `info`  | GET  | Get information about the entire site
-| `users` | GET  | Get all users
-| `users/signin?username={username}` | GET | Sign in with `username`
-
-List of routes for questions:
-
-| Route            | HTTP | Description
-|------------------|------|------------
-| `questions`      | GET  | Get all the questions
-| `questions`      | POST | Create a question with a payload
-| `questions/{id}` | GET  | Get a single question
-| `questions/{id}` | DEL  | Delete a question
-| `questions/{id}` | PUT  | Update a question with new payload
-
-[TODO WIP HERE]
+| Route | HTTP | Description | Function
+|-------|------|-------------|---------
+| `/info`  | GET  | Get information about the entire site
+| `/users` | GET  | Get all users
+| `/users/signin?username={username}` | GET | Sign in with `username`
+| `/` | GET  | List all questions | listQuestions
+| `/questions`     | GET  | List all questions | listQuestions
+| `/questions`     | POST | Create a question with a payload | postQuestion
+| `/questions/:id` | PUT  | Update a question with new payload | updateQuestion
+| `/questions/:id` | GET  | Get a single question
+| `/questions/:id` | DEL  | Delete a question
+| `/questions/:id/answers` | GET | Find all answers | getAnswers
+| `/questions/:id/answers` | POST | Answer a question | postQuestion
 
 List of routes for filter regarding search:
 
-| Route               | HTTP | Description
-|---------------------|------|------------
-| `questions?id={id}` | GET  | Get `id` match in questions
-| `questions?id={id}` | GET  | Get `id` like in questions
+| Route | HTTP | Description
+|-------|------|------------
+| `/questions?id=:id` | GET | Get `id` match in questions
+| `/questions?id=:id` | GET | Get `id` like in questions
 
 *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
