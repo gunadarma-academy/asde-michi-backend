@@ -5,8 +5,9 @@
   "public": "../public/",
   "auth": {
     "token": {
-      "secret": "omsOC17/0jwPwweTVcAab59q3d5rgRiGdDIcXryj+WkC9gG3qS7V48mau82Yk9v4dqbnjc1IABVsnNmwfW60qQ=="
+      "secret": "<secret>"
     },
-    "local": {}
+    "local": {},
+    "successRedirect": "/app.html"
   }
 }
