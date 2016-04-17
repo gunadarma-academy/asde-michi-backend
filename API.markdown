@@ -13,8 +13,8 @@ List of routes for basic actions of users, questions, answers:
 |-------|------|-------------|---------
 | `/info`  | GET  | Get information about the entire site
 | `/users` | GET  | Get all users
-| `/users/signin?username={username}` | GET | Sign in with `username`
-| `/` | GET  | List all questions | listQuestions
+| `/signup` | POST | Sign up with `email` and `password`
+| `/auth/local` | POST | Sign in with `email` and `password`
 | `/questions`     | GET  | List all questions | listQuestions
 | `/questions`     | POST | Create a question with a payload | postQuestion
 | `/questions/:id` | PUT  | Update a question with new payload | updateQuestion
@@ -27,8 +27,7 @@ List of routes for filter regarding search:
 
 | Route | HTTP | Description
 |-------|------|------------
-| `/questions?id=:id` | GET | Get `id` match in questions
-| `/questions?id=:id` | GET | Get `id` like in questions
+| `/questions?_id=:id` | GET | Get `id` match or like in questions
 
 *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
