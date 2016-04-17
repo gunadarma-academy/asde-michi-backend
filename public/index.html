@@ -1,0 +1,41 @@
+<!doctype html>
+
+<head>
+  <title>Welcome to Feathers</title>
+</head>
+
+<body>
+
+  <main class="container">
+    <h2 class="center-text">A minimalist real-time framework for tomorrow's apps.</h2>
+  </main>
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js"></script>
+  <script src="//npmcdn.com/feathers-client@^1.0.0/dist/feathers.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+    // Establish a Socket.io connection to the local server
+    var socket = io();
+
+    // Create a client side Feathers application that uses the socket
+    // for connecting to services
+    var app = feathers();
+    app.configure(feathers.socketio(socket));
+
+    // Retrieve a connection to the /messages service on the server
+    // This service will use websockets for all communication
+    var messages = app.service('messages');
+
+    // Listen for when a new message has been created
+    messages.on('created', function(message) {
+      console.log('Someone created a message', message);
+    });
+
+    // Create a new message on the service
+    messages.create({
+      text: 'Hello from websocket!'
+    });
+  </script>
+</body>
+
+</html>

@@ -8,7 +8,7 @@ Introduction
 
 > Base/backend layer application for Arlin.
 
-This application is using Node.js and npm. Please follow the getting started guide first. We're planning to use Hapi and MongoDB to build the initial REST API.
+This application is using Node.js and npm. Please follow the getting started guide first. Now use [Feathers](http://feathersjs.com), an open source web framework for building modern real-time applications.
 
 The broader Technical Documentation that isn't concretely about only the application either the backend or frontend itself, is in the [parent repo (asde-michi)](https://github.com/gunadarma-academy/asde-michi#technical-documentation).
 
@@ -25,16 +25,18 @@ Getting Started
 + Modern web browser (Google Chrome or Firefox)
 + HTTP client app like [cURL](https://curl.haxx.se) or [Postman](https://getpostman.com)
 + [Node.js](http://nodejs.org): JavaScript in the server/backend LTS, currently version `4.4.x`
-+ [Hapi](http://hapijs.com): A very well designed server framework that is easy to understand, easy to create your own plugins, scales very well, cache options built in, and more
-+ [Gulp](http://gulpjs.com): A task runner for your assets and more
-+ No CSS framework here. Choose your own in the frontend you build
++ [Feathers](http://feathersjs.com): An open source web framework for building modern real-time applications.
++ (Deprecated) [Hapi](http://hapijs.com): A very well designed server framework that is easy to understand, easy to create your own plugins, scales very well, cache options built in, and more
++ (Deprecated) [Gulp](http://gulpjs.com): A task runner for your assets and more
++ No specific CSS framework here. Choose your own in the frontend you build
 
 ### Installation
 
 + Install Node.js from your prefered way, or from <http://nodejs.org>
   + It's also recommended to [use Node Version Manager (nvm)](https://github.com/creationix/nvm)
 + Install required npm packages/modules with `npm install` within this repo
-+ Install pm2 globally (`npm install -g pm2`)
++ Install `feathers-cli` globally (`npm install -g feathers-cli`)
++ Install `pm2` globally (`npm install -g pm2`)
 
 ### Development
 
@@ -45,13 +47,14 @@ Getting Started
 + Push to the branch (`git push origin feature-name`)
 + Create new Pull Request
 
-### Usage and Deployment
+### Usage, Testing, and Deployment
 
-Use `npm run-script <script-name>` for below:
+Start the app with `npm start` or use `npm run <script>` for below:
 
 ```
 start: Start ecosystem.json
 stop: Stop ecosystem.json
+test:
 deploy-production-setup: Setup the production
 deploy-production: Deploy to production
 deploy-staging-setup: Setup the staging
@@ -60,7 +63,7 @@ deploy-development-setup: Setup the development
 deploy-development: Deploy to development
 ```
 
-Access `http://{host}:{port}/{api_route}` or that already shown in the prompt to view. Read the complete [REST API endpoint available here](API.markdown).
+Access `http://{host}:{port}/{route}` or that already shown in the prompt to view. Read the complete [REST API endpoint available here](API.markdown).
 
 Notice that you should have a proper access to the server. It's recommended to use SSH key that is already added/registered there. You might want to use `ssh-copy-id username@xx.xx.xx.xx` first. SSH into that username, then edit its username's `.bashrc` to comment out:
 ```
@@ -78,6 +81,21 @@ to resolve non-interactive SSH connection from pm2.
 + Deploy to a configured SaaS with something like `heroku push`
 
 **Notes:** In the middle of the development, it's possible to use Continuous Integration (CI) or even Continuous Delivery (CD) to automate the build and deployment.
+
+### Scaffolding
+
+Feathers has a powerful command line interface. Here are a few things it can do:
+
+```
+$ npm install -g feathers-cli             # Install Feathers CLI
+
+$ feathers generate service               # Generate a new Service
+$ feathers generate hook                  # Generate a new Hook
+$ feathers generate model                 # Generate a new Model
+$ feathers help                           # Show all commands
+```
+
+For more information on all the things you can do with Feathers visit [docs.feathersjs.com](http://docs.feathersjs.com).
 
 *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 
