@@ -8,9 +8,24 @@
 const defaults = {};
 
 module.exports = function(options) {
-  options = Object.assign({}, defaults, options);
-
   return function(hook) {
-    hook.process = true;
+    // The authenticated user
+    const user = hook.params.user;
+    // The actual question text
+    const text = hook.data.text
+      // Questions can't be longer than 1000 characters
+      .substring(0, 1000)
+      // Do some basic HTML escaping
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+    // Override the original data
+    hook.data = {
+      text,
+      // Set the user id
+      userId: user._id,
+      // Add the current time via `getTime`
+      createdAt: new Date().getTime(),
+      updatedAt: new Date().getTime()
+    };
   };
 };
