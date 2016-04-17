@@ -1,11 +1,16 @@
 {
-  "name": "arlin-hapi",
-  "version": "0.1.0",
-  "description": "Arlin backend application by Michi",
-  "main": "server.js",
+  "name": "arlin-app",
+  "description": "Arlin backend and basic frontend application by Michi",
+  "version": "0.2.0",
+  "homepage": "",
+  "main": "src/",
   "scripts": {
-    "start": "pm2 start ecosystem.json --watch",
-    "stop": "pm2 start ecosystem.json",
+    "start": "babel-node src/",
+    "start-pm2": "pm2 start ecosystem.json --watch",
+    "stop-pm2": "pm2 start ecosystem.json",
+    "test": "npm run jshint && npm run mocha",
+    "jshint": "jshint src/. test/. --config",
+    "mocha": "mocha test/ --compilers js:babel-core/register --recursive",
     "deploy-production-setup": "pm2 deploy ecosystem.json production setup",
     "deploy-production": "pm2 deploy ecosystem.json production",
     "deploy-staging-setup": "pm2 deploy ecosystem.json staging setup",
@@ -14,37 +19,53 @@
     "deploy-development": "pm2 deploy ecosystem.json development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "body-parser": "1.15.0",
+    "compression": "1.6.1",
+    "cors": "2.7.1",
+    "feathers": "2.0.0",
+    "feathers-authentication": "0.7.3",
+    "feathers-configuration": "0.2.2",
+    "feathers-errors": "2.1.0",
+    "feathers-hooks": "1.5.2",
+    "feathers-nedb": "2.2.3",
+    "feathers-rest": "1.2.5",
+    "feathers-socketio": "1.3.4",
+    "nedb": "1.8.0",
+    "passport": "0.3.2",
+    "serve-favicon": "2.3.0",
+    "winston": "2.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "6.7.5",
+    "babel-core": "6.7.6",
+    "babel-preset-es2015": "6.6.0",
+    "jshint": "2.9.1",
+    "mocha": "2.4.5",
+    "request": "2.71.0"
+  },
+  "engines": {
+    "node": ">= 0.12.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/gunadarma-academy/asde-michi-app.git"
   },
-  "keywords": [
-    "arlin",
-    "backend",
-    "michi",
-    "hapi",
-    "nodejs",
-    "javascript",
-    "api"
-  ],
-  "author": "Arlin by Michi <admin@arlin.link>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/gunadarma-academy/asde-michi/issues"
   },
   "homepage": "http://arlin.link",
-  "dependencies": {
-    "boom": "3.1.1",
-    "good": "6.4.0",
-    "good-console": "5.2.0",
-    "hapi": "13.0.0",
-    "hoek": "3.0.4",
-    "inert": "3.2.0",
-    "joi": "7.2.0",
-    "vision": "4.0.1",
-	"bell": "^2.0.0-rc1",
-    "hapi": "^8.0.0-rc5",
-    "getconfig": "^1.0.0",
-    "hapi-auth-cookie": "^2.0.0-rc1"
-  }
+  "author": "Arlin by Michi <admin@arlin.link>",
+  "contributors": [ "M Haidar Hanif <me@mhaidarhanif.com>" ],
+  "keywords": [
+    "arlin",
+    "backend",
+    "frontend",
+    "michi",
+    "nodejs",
+    "javascript",
+    "feathers",
+    "api"
+  ],
+  "license": "MIT"
 }

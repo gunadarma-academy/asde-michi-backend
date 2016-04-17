@@ -1,5 +1,6 @@
 mhaidarh/arlin-hapi:
   PreInstall:
+    - echo "---PreInstall---"
     - nvm install v4
     - npm install -g pm2 gulp
   Build:
@@ -8,6 +9,7 @@ mhaidarh/arlin-hapi:
   PkgInclude:
     - '*'
   Env:
-    - PORT: "9000"
+    - PORT: "3030"
   Exec:
+    - echo "---Starting---"
     - pm2 start ecosystem.json
