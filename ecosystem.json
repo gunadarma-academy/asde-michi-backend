@@ -2,13 +2,20 @@
   /**
    * Application configuration section
    * http://pm2.keymetrics.io/docs/usage/application-declaration
+   * http://pm2.keymetrics.io/docs/usage/specifics
    */
   apps: [
 
     // Main application
     {
-      name: "arlin-hapi",
-      script: "index.js",
+      name: "arlin-app",
+      script: "src/",
+      "node_args": "--harmony",
+      "watch": ["config", "src", "public"],
+      "ignore_watch": ["node_modules"],
+      "watch_options": {
+        "followSymlinks": false
+      },
       env: {
         COMMON_VARIABLE: "true"
       },

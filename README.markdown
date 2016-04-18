@@ -35,8 +35,8 @@ Getting Started
 + Install Node.js from your prefered way, or from <http://nodejs.org>
   + It's also recommended to [use Node Version Manager (nvm)](https://github.com/creationix/nvm)
 + Install required npm packages/modules with `npm install` within this repo
-+ Install `feathers-cli` globally (`npm install -g feathers-cli`)
-+ Install `pm2` globally (`npm install -g pm2`)
++ Install and update required CLI globally:
+  + `npm install -g feathers-cli pm2 jshint mocha`)
 
 ### Development
 
@@ -52,7 +52,7 @@ Getting Started
 Start the app with `npm start` or use `npm run <script>` for below:
 
 ```
-start: Start ecosystem.json
+start: Start ecosystem.json with ES6 and watcher
 stop: Stop ecosystem.json
 test:
 deploy-production-setup: Setup the production

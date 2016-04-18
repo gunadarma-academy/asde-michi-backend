@@ -5,9 +5,8 @@
   "homepage": "",
   "main": "src/",
   "scripts": {
-    "start": "babel-node src/",
-    "start-pm2": "pm2 start ecosystem.json --watch",
-    "stop-pm2": "pm2 start ecosystem.json",
+    "start": "pm2 start ecosystem.json --watch",
+    "stop": "pm2 start ecosystem.json",
     "test": "npm run jshint && npm run mocha",
     "jshint": "jshint src/. test/. --config",
     "mocha": "mocha test/ --compilers js:babel-core/register --recursive",
@@ -16,8 +15,7 @@
     "deploy-staging-setup": "pm2 deploy ecosystem.json staging setup",
     "deploy-staging": "pm2 deploy ecosystem.json staging",
     "deploy-development-setup": "pm2 deploy ecosystem.json development setup",
-    "deploy-development": "pm2 deploy ecosystem.json development",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy-development": "pm2 deploy ecosystem.json development"
   },
   "dependencies": {
     "body-parser": "1.15.0",
