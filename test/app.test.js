@@ -1,12 +1,16 @@
 'use strict';
 
-const assert = require('assert');
+const chai = require('chai');
+const expect = chai.expect;
+const assert = chai.assert;
+const should = chai.should();
+
 const request = require('request');
 const app = require('../src/app');
 
 describe('Feathers application tests', function() {
   before(function(done) {
-    this.server = app.listen(3030);
+    this.server = app.listen(3333);
     this.server.once('listening', () => done());
   });
 
@@ -21,7 +25,14 @@ describe('Feathers application tests', function() {
     });
   });
 
-  describe('404', function() {
+  it('shows Arlin in title', function(done) {
+    request('http://localhost:3030', function(err, res, body) {
+      // expect(('<title>').to.have.html('Arlin'));
+      done(err);
+    });
+  });
+
+  describe('error 404', function() {
     it('shows a 404 HTML page', function(done) {
       request({
         url: 'http://localhost:3030/path/to/nowhere',

@@ -11,21 +11,23 @@ module.exports = function(options) {
   return function(hook) {
     // The authenticated user
     const user = hook.params.user;
-    // The actual question text
-    const text = hook.data.text
-      // Questions can't be longer than 1000 characters
+
+    // The actual question content
+    // Limit characters and do some basic HTML escaping
+    const title = hook.data.text
+      .substring(0, 140)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const description = hook.data.description
       .substring(0, 1000)
-      // Do some basic HTML escaping
       .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
     // Override the original data
     hook.data = {
-      text,
-      // Set the user id
-      userId: user._id,
-      // Add the current time via `getTime`
-      createdAt: new Date().getTime(),
-      updatedAt: new Date().getTime()
+      title,
+      description,
+      author: user._id,
+      created_at: new Date().getTime(),
+      updated_at: new Date().getTime()
     };
   };
 };

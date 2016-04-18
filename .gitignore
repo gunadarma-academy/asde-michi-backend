@@ -38,3 +38,7 @@ data/
 
 # Various library
 lib/
+
+# Testing report
+# mochawesome
+report/

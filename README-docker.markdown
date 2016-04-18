@@ -56,3 +56,24 @@ Access each containers to check:
 To stop and remove all running containers, use:
 
     docker stop $(docker ps -aq) && docker rm $(docker ps -aq)  
+
+### Backup data
+
+Use [istepanov/mongodump](https://github.com/istepanov/docker-mongodump)
+
+
+With cron
+
+    docker run -d \
+        -v /home/arlin/data:/backup \
+        -e 'CRON_SCHEDULE=0 1 * * *' \
+        --link mongodb:mongo \
+        istepanov/mongodump
+
+Without cron:
+
+    docker run -d \
+        -v /home/arlin/data:/backup \
+        --link mongodb:mongo \
+        istepanov/mongodump no-cron
+
