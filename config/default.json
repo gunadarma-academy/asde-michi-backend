@@ -5,9 +5,8 @@
   "public": "../public/",
   "auth": {
     "token": {
-      "secret": "<secret>"
+      "secret": "FEATHERS_AUTH_SECRET"
     },
-    "local": {},
-    "successRedirect": "/app.html"
+    "local": {}
   }
 }

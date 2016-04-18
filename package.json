@@ -6,16 +6,16 @@
   "main": "src/",
   "scripts": {
     "start": "pm2 start ecosystem.json --watch",
-    "stop": "pm2 start ecosystem.json",
+    "stop": "pm2 stop ecosystem.json",
     "test": "npm run jshint && npm run mocha",
     "jshint": "jshint src/. test/. --config",
-    "mocha": "mocha test/ --compilers js:babel-core/register --recursive",
-    "deploy-production-setup": "pm2 deploy ecosystem.json production setup",
-    "deploy-production": "pm2 deploy ecosystem.json production",
+    "mocha": "mocha test/ --recursive",
+    "deploy-setup": "pm2 deploy ecosystem.json production setup",
+    "deploy": "pm2 deploy ecosystem.json production",
     "deploy-staging-setup": "pm2 deploy ecosystem.json staging setup",
     "deploy-staging": "pm2 deploy ecosystem.json staging",
-    "deploy-development-setup": "pm2 deploy ecosystem.json development setup",
-    "deploy-development": "pm2 deploy ecosystem.json development"
+    "deploy-dev-setup": "NODE_ENV=dev pm2 deploy ecosystem.json dev setup",
+    "deploy-dev": "NODE_ENV=dev pm2 deploy ecosystem.json dev"
   },
   "dependencies": {
     "body-parser": "1.15.0",

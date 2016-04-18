@@ -19,8 +19,8 @@
       env: {
         COMMON_VARIABLE: "true"
       },
-      env_development: {
-        NODE_ENV: "development"
+      env_dev: {
+        NODE_ENV: "dev"
       },
       env_staging: {
         NODE_ENV: "staging"
@@ -37,21 +37,21 @@
    * http://pm2.keymetrics.io/docs/usage/deployment
    */
   deploy: {
-    development: {
+    dev: {
       user: "arlin",
       host: "128.199.216.87",
-      ref: "origin/development",
+      ref: "origin/master",
       repo: "https://github.com/gunadarma-academy/asde-michi-app.git",
-      path: "/home/arlin/app/development",
-      "post-deploy": "npm install ; pm2 startOrRestart ecosystem.json --env development",
+      path: "/home/arlin/app/dev",
+      "post-deploy": "npm install ; pm2 startOrRestart ecosystem.json --env dev",
       env: {
-        NODE_ENV: "development"
+        NODE_ENV: "dev"
       }
     },
     staging: {
       user: "arlin",
       host: "128.199.216.87",
-      ref: "origin/staging",
+      ref: "origin/master",
       repo: "https://github.com/gunadarma-academy/asde-michi-app.git",
       path: "/home/arlin/app/staging",
       "post-deploy": "npm install ; pm2 startOrRestart ecosystem.json --env staging",
