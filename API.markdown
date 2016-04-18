@@ -14,7 +14,9 @@ List of routes for basic actions of users, questions, answers:
 | `/info`  | GET  | Get information about the entire site
 | `/users` | GET  | Get all users
 | `/signup` | POST | Sign up with `email` and `password`
-| `/auth/local` | POST | Sign in with `email` and `password`
+| `/auth/local` | POST | Authenticate with local, `email` and `password`
+| `/auth/twitter` | POST | Authenticate with Twitter
+| `/auth/facebook` | POST | Authenticate with Facebook
 | `/questions`     | GET  | List all questions | listQuestions
 | `/questions`     | POST | Create a question with a payload | postQuestion
 | `/questions/:id` | PUT  | Update a question with new payload | updateQuestion
