@@ -8,9 +8,9 @@
     "start": "pm2 start ecosystem.json --watch",
     "stop": "pm2 stop ecosystem.json",
     "push": "git push origin && git push origin --tags",
-    "test": "npm run jshint && npm run mocha -R",
+    "test": "npm run jshint && npm run mocha",
     "jshint": "jshint src/. test/. --config",
-    "mocha": "mocha test/. --recursive || echo",
+    "mocha": "mocha test/. --recursive",
     "mochawesome": "MOCHAWESOME_REPORTDIR=report mocha test/. --recursive --reporter mochawesome || echo",
     "release:major": "npm version major && npm run push",
     "release:minor": "npm version minor && npm run push",
@@ -50,7 +50,7 @@
     "request": "2.71.0"
   },
   "engines": {
-    "node": ">= 0.12.0"
+    "node": ">= 4.4.0"
   },
   "repository": {
     "type": "git",
