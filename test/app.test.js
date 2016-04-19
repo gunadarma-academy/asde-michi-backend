@@ -1,12 +1,11 @@
 'use strict';
 
+const app = require('../src/app');
+const request = require('request');
 const chai = require('chai');
 const expect = chai.expect;
 const assert = chai.assert;
 const should = chai.should();
-
-const request = require('request');
-const app = require('../src/app');
 
 describe('Feathers application tests', function() {
   before(function(done) {

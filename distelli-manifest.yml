@@ -1,16 +1,19 @@
 arlin/arlin-backend:
-  PreInstall:
-    - echo "---PreInstall---"
-    - nvm install v4
-    - npm install -g pm2
-  Build:
-    - echo "---Building---"
-    - npm install
-  PkgInclude:
-    - '*'
   Env:
     - PORT: "3030"
+  PkgInclude:
+    - '*'
+  PkgExclude:
+    - node_modules/
+  PreInstall:
+    - nvm install v4
+    - nvm use v4
+  PostInstall:
+    - npm install
+    - npm install -g pm2 jshint mocha
+  Build:
+    - npm test
   Exec:
-    - echo "---Starting---"
     - npm start
     - npm test
+

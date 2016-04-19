@@ -8,7 +8,7 @@
     "start": "pm2 start ecosystem.json --watch",
     "stop": "pm2 stop ecosystem.json",
     "push": "git push origin && git push origin --tags",
-    "test": "npm run jshint && npm run mocha -R min -w",
+    "test": "npm run jshint && npm run mocha -R",
     "jshint": "jshint src/. test/. --config",
     "mocha": "mocha test/. --recursive || echo",
     "mochawesome": "MOCHAWESOME_REPORTDIR=report mocha test/. --recursive --reporter mochawesome || echo",
