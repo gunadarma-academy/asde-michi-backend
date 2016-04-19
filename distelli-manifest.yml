@@ -1,8 +1,8 @@
-mhaidarh/arlin-hapi:
+arlin/arlin-backend:
   PreInstall:
     - echo "---PreInstall---"
     - nvm install v4
-    - npm install -g pm2 gulp
+    - npm install -g pm2
   Build:
     - echo "---Building---"
     - npm install
@@ -12,4 +12,5 @@ mhaidarh/arlin-hapi:
     - PORT: "3030"
   Exec:
     - echo "---Starting---"
-    - pm2 start ecosystem.json
+    - npm start
+    - npm test
