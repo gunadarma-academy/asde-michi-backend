@@ -7,6 +7,8 @@ const expect = chai.expect;
 const assert = chai.assert;
 const should = chai.should();
 
+chai.use(require('chai-datetime'));
+
 describe('Feathers application tests', function() {
   before(function(done) {
     this.server = app.listen(3333);
