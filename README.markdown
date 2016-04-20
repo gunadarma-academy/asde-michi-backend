@@ -1,7 +1,8 @@
 Arlin App by Michi
 ==================
 
-![Codeship](https://codeship.com/projects/6ae54480-e895-0133-e826-42b0d7ba25b6/status?branch=master)
+![Codeship Status](https://codeship.com/projects/6ae54480-e895-0133-e826-42b0d7ba25b6/status?branch=master)
+[![Snap Build Status](https://snap-ci.com/gunadarma-academy/asde-michi-backend/branch/master/build_image)](https://snap-ci.com/gunadarma-academy/asde-michi-backend/branch/master)
 
 Introduction
 ------------
