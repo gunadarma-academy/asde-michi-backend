@@ -1,6 +1,6 @@
 # setup
 npm install
-npm install -g pm2 jshint mochan
+npm install -g pm2 jshint mocha
 
 # pipeline
 npm start
