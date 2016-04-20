@@ -55,7 +55,16 @@ Access each containers to check:
 
 To stop and remove all running containers, use:
 
-    docker stop $(docker ps -aq) && docker rm $(docker ps -aq)  
+    docker stop $(docker ps -aq) && docker rm $(docker ps -aq)
+
+### Build and Run
+
+`docker build -t $(USER)/arlin-backend .`
+
+`docker run -d -P $(USER)/arlin-backend`
+
+`docker ps -aq`
+
 
 ### Backup data
 
