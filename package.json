@@ -16,12 +16,12 @@
     "release:major": "npm version major && npm run push",
     "release:minor": "npm version minor && npm run push",
     "release:patch": "npm version patch && npm run push",
-    "deploy:setup": "pm2 deploy ecosystem.json production setup",
-    "deploy": "pm2 deploy ecosystem.json production",
-    "deploy:staging:setup": "pm2 deploy ecosystem.json staging setup",
-    "deploy:staging": "pm2 deploy ecosystem.json staging",
     "deploy:dev:setup": "NODE_ENV=dev pm2 deploy ecosystem.json dev setup",
-    "deploy:dev": "NODE_ENV=dev pm2 deploy ecosystem.json dev"
+    "deploy:dev": "NODE_ENV=dev pm2 deploy ecosystem.json dev",
+    "deploy:staging:setup": "NODE_ENV=staging pm2 deploy ecosystem.json staging setup",
+    "deploy:staging": "NODE_ENV=staging pm2 deploy ecosystem.json staging",
+    "deploy:setup": "NODE_ENV=production pm2 deploy ecosystem.json production setup",
+    "deploy": "NODE_ENV=production pm2 deploy ecosystem.json production"
   },
   "devDependencies": {
     "babel-cli": "6.7.5",
