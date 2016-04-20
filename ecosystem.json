@@ -6,9 +6,8 @@
    */
   apps: [
 
-    // Main application
     {
-      name: "arlin-app",
+      name: "arlin-backend",
       script: "src/",
       "node_args": "--harmony",
       "watch": ["config", "src", "public"],

@@ -8,14 +8,14 @@ const gravatar = require('./gravatar');
 exports.before = {
   all: [],
   find: [
-    auth.verifyToken(),
-    auth.populateUser(),
-    auth.restrictToAuthenticated()
+    // auth.verifyToken(),
+    auth.populateUser()
+    // auth.restrictToAuthenticated()
   ],
   get: [
-    auth.verifyToken(),
-    auth.populateUser(),
-    auth.restrictToAuthenticated()
+    // auth.verifyToken(),
+    auth.populateUser()
+    // auth.restrictToAuthenticated()
   ],
   create: [auth.hashPassword(), gravatar()],
   update: [
