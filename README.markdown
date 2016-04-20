@@ -1,7 +1,6 @@
-Arlin App by Michi
-==================
+Arlin Backend
+=============
 
-![Codeship Status](https://codeship.com/projects/6ae54480-e895-0133-e826-42b0d7ba25b6/status?branch=master)
 [![Snap Build Status](https://snap-ci.com/gunadarma-academy/asde-michi-backend/branch/master/build_image)](https://snap-ci.com/gunadarma-academy/asde-michi-backend/branch/master)
 
 Introduction
@@ -27,8 +26,6 @@ Getting Started
 + HTTP client app like [cURL](https://curl.haxx.se) or [Postman](https://getpostman.com)
 + [Node.js](http://nodejs.org): JavaScript in the server/backend LTS, currently version `4.4.x`
 + [Feathers](http://feathersjs.com): An open source web framework for building modern real-time applications.
-+ (Deprecated) [Hapi](http://hapijs.com): A very well designed server framework that is easy to understand, easy to create your own plugins, scales very well, cache options built in, and more
-+ (Deprecated) [Gulp](http://gulpjs.com): A task runner for your assets and more
 + No specific CSS framework here. Choose your own in the frontend you build
 
 ### Installation
@@ -36,14 +33,14 @@ Getting Started
 + Install Node.js from your prefered way, or from <http://nodejs.org>
   + It's also recommended to [use Node Version Manager (nvm)](https://github.com/creationix/nvm)
 + Install required npm packages/modules with `npm install` within this repo
-+ Install and update required CLI globally:
++ Install and update required CLI globally to make sure:
   + `npm install -g feathers-cli pm2 jshint mocha`)
 
 ### Development
 
 + Fork the repository
 + Create your feature branch (`git checkout -b feature-name`)
-+ Make your changes with your editor (`vim` or `atom` or `sublime`)
++ Make your changes with your editor
 + Commit your changes (`git commit -a`)
 + Push to the branch (`git push origin feature-name`)
 + Create new Pull Request
@@ -53,20 +50,23 @@ Getting Started
 Start the app with `npm start` or use `npm run <script>` for below:
 
 ```
-start: Start ecosystem.json with ES6 and watcher
-stop: Stop ecosystem.json
-test:
-deploy-production-setup: Setup the production
-deploy-production: Deploy to production
-deploy-staging-setup: Setup the staging
-deploy-staging: Deploy to staging
-deploy-development-setup: Setup the development
-deploy-development: Deploy to development
+start: Start pm2 ecosystem with ES6 and watcher
+start:frontend: Start frontend app
+stop: Stop pm2 ecosystem
+test: Run jshint and mocha
+deploy:development:setup: Setup the development
+deploy:development: Deploy to development
+deploy:staging:setup: Setup the staging
+deploy:staging: Deploy to staging
+deploy:production:setup: Setup the production
+deploy:production: Deploy to production
 ```
 
-Access `http://{host}:{port}/{route}` or that already shown in the prompt to view. Read the complete [REST API endpoint available here](API.markdown).
+Access `http://{host}:{port}/{route}` or that already shown in the prompt to view. Read the complete [REST API endpoint available here](https://github.com/gunadarma-academy/asde-michi/blob/master/docs/API.markdown).
 
-Notice that you should have a proper access to the server. It's recommended to use SSH key that is already added/registered there. You might want to use `ssh-copy-id username@xx.xx.xx.xx` first. SSH into that username, then edit its username's `.bashrc` to comment out:
+_NOTES:_
+
+Notice that for deployment, you should have a proper access to the server. It's recommended to use SSH key that is already added/registered there. You might want to use `ssh-copy-id username@xx.xx.xx.xx` first. SSH into that username, then edit its username's `.bashrc` to comment out:
 ```
 # If not running interactively, don't do anything
 case $- in
@@ -76,12 +76,7 @@ esac
 ```
 to resolve non-interactive SSH connection from pm2.
 
-[TODO]
-
-+ Push to designated server with `git push server master`
-+ Deploy to a configured SaaS with something like `heroku push`
-
-**Notes:** In the middle of the development, it's possible to use Continuous Integration (CI) or even Continuous Delivery (CD) to automate the build and deployment.
+In the middle of the development, it's possible to use Continuous Integration (CI) or even Continuous Delivery (CD) to automate the build and deployment. Currently mainly using [Snap CI here](https://snap-ci.com/gunadarma-academy/asde-michi-backend).
 
 ### Scaffolding
 
