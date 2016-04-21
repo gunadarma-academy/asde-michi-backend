@@ -19,13 +19,16 @@
         COMMON_VARIABLE: "true"
       },
       env_dev: {
-        NODE_ENV: "dev"
+        NODE_ENV: "dev",
+        NEDB_BASE_PATH: "./data"
       },
       env_staging: {
-        NODE_ENV: "staging"
+        NODE_ENV: "staging",
+        NEDB_BASE_PATH: "./data"
       },
       env_production: {
-        NODE_ENV: "production"
+        NODE_ENV: "production",
+        NEDB_BASE_PATH: "./data"
       }
     }
 
