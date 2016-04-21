@@ -13,7 +13,7 @@
     "stop": "pm2 stop ecosystem.json",
     "delete": "pm2 delete arlin-backend",
     "push": "git push origin && git push origin --tags",
-    "test": "npm start && npm run jshint && npm run mocha -s",
+    "test": "npm run jshint && npm run mocha -s",
     "jshint": "jshint src/. test/. --config",
     "mocha": "mocha test/. --recursive",
     "mochawesome": "MOCHAWESOME_REPORTDIR=report mocha test/. --recursive --reporter mochawesome -s",
