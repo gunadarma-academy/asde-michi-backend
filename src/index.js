@@ -6,5 +6,5 @@ const host = app.get('host');
 const server = app.listen(port);
 
 server.on('listening', () =>
-  console.log(`Arlin with Feathers app started on ${host}:${port}`)
+  console.log(`Arlin backend app running at http://${host}:${port}`)
 );
