@@ -1,6 +1,6 @@
 {
-  "host": "staging.arlin.link",
-  "port": 6060,
+  "host": "localhost",
+  "port": 3030,
   "nedb": "NEDB_BASE_PATH",
   "public": "../public/",
   "auth": {

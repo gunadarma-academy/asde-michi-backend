@@ -1,6 +1,6 @@
 {
-  "host": "dev.arlin.link",
-  "port": 9090,
+  "host": "arlin.link",
+  "port": 3030,
   "nedb": "NEDB_BASE_PATH",
   "public": "../public/",
   "auth": {

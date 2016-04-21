@@ -5,7 +5,7 @@
   "homepage": "http://dev.arlin.link",
   "main": "src/",
   "scripts": {
-    "start": "npm run start:production",
+    "start": "npm run start:dev",
     "start:dev": "pm2 start ecosystem.json --watch --env dev",
     "start:staging": "pm2 start ecosystem.json --watch --env staging",
     "start:production": "pm2 start ecosystem.json --watch --env production",
