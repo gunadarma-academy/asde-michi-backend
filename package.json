@@ -5,7 +5,10 @@
   "homepage": "http://dev.arlin.link",
   "main": "src/",
   "scripts": {
-    "start": "pm2 start ecosystem.json --watch",
+    "start": "npm run start:production",
+    "start:dev": "pm2 start ecosystem.json --watch --env dev",
+    "start:staging": "pm2 start ecosystem.json --watch --env staging",
+    "start:production": "pm2 start ecosystem.json --watch --env production",
     "start:frontend": "cd frontend && pm2 start ecosystem.json --watch",
     "stop": "pm2 stop ecosystem.json",
     "push": "git push origin && git push origin --tags",
