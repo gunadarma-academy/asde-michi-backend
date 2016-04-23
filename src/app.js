@@ -22,8 +22,6 @@ app.configure(configuration(path.join(__dirname, '..')));
 app.use(compress())
   .options('*', cors())
   .use(cors())
-  .use(favicon(path.join(app.get('public'), 'favicon.ico')))
-  .use('/', serveStatic(app.get('public')))
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({
     extended: true
@@ -34,11 +32,10 @@ app.use(compress())
   .configure(services)
   .configure(middleware);
 
-// Run the frontend with express
-// const server = app.listen(8080, '127.0.0.1', function () {
-//   const host = server.address().address;
-//   var port = server.address().port;
-//   console.log(`Arlin frontend app running at http://${host}:${port}`);
-// });
+const port = app.get('port');
+const host = app.get('host');
+const server = app.listen(port, host);
 
-module.exports = app;
+server.on('listening', () =>
+  console.log(`Arlin backend app running at http://${host}:${port}`)
+);

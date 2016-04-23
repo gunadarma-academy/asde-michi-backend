@@ -17,8 +17,6 @@ describe('user init hook', () => {
       params: {
         user: {
           _id: '123',
-          email: 'admin@arlin.link',
-          username: 'admin'
         },
       },
       result: {},
@@ -28,9 +26,6 @@ describe('user init hook', () => {
     init()(mockHook);
 
     assert.deepEqual(mockHook.data, {
-      _id: '123',
-      email: 'admin@arlin.link',
-      username: 'admin',
       created_at: moment().unix()
     });
   });

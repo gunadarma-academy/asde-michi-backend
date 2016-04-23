@@ -1,15 +1,15 @@
 'use strict';
 
-const app = require('../src/app');
+const app = require('../src/index');
 const request = require('request');
 const chai = require('chai');
 const expect = chai.expect;
 const assert = chai.assert;
 const should = chai.should();
 
-describe('Arlin backend application tests', function () {
+describe('Arlin frontend application tests', function () {
   before(function (done) {
-    this.server = app.listen(3333);
+    this.server = app.listen(8888);
     this.server.once('listening', () => done());
   });
 
@@ -18,8 +18,15 @@ describe('Arlin backend application tests', function () {
   });
 
   it('starts and shows the index page', function (done) {
-    request('http://localhost:3030', function (err, res, body) {
+    request('http://localhost:8888', function (err, res, body) {
       assert.ok(body.indexOf('<html>') !== -1);
+      done(err);
+    });
+  });
+
+  it('shows Arlin in title', function (done) {
+    request('http://localhost:8888', function (err, res, body) {
+      // expect(('<title>').to.have.html('Arlin'));
       done(err);
     });
   });
@@ -27,7 +34,7 @@ describe('Arlin backend application tests', function () {
   describe('error 404', function () {
     it('shows a 404 HTML page', function (done) {
       request({
-        url: 'http://localhost:3030/404',
+        url: 'http://localhost:8888/404',
         headers: {
           'Accept': 'text/html'
         }
@@ -40,7 +47,7 @@ describe('Arlin backend application tests', function () {
 
     it('shows a 404 JSON error without stack trace', function (done) {
       request({
-        url: 'http://localhost:3030/404',
+        url: 'http://localhost:8888/404',
         json: true
       }, function (err, res, body) {
         assert.equal(res.statusCode, 404);
