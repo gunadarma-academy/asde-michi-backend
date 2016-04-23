@@ -10,19 +10,19 @@ const edit = require('./edit');
 exports.before = {
   all: [],
   find: [
-    // auth.verifyToken(),
-    // auth.restrictToAuthenticated(),
+    auth.verifyToken(),
+    auth.restrictToAuthenticated(),
     auth.populateUser()
   ],
   get: [
-    // auth.verifyToken(),
-    // auth.restrictToAuthenticated(),
+    auth.verifyToken(),
+    auth.restrictToAuthenticated(),
     auth.populateUser()
   ],
   create: [
     auth.hashPassword(),
-    gravatar(),
-    init()
+    init(),
+    gravatar()
   ],
   update: [
     auth.verifyToken(),
