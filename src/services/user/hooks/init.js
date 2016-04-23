@@ -20,6 +20,7 @@ module.exports = function (options) {
   return function (hook) {
     // The authenticated user
     const user = hook.params.user;
+    const _id = hook.params.user._id;
     const email = hook.params.user.email
       .substring(0, 100);
     const username = hook.params.user.username
@@ -27,9 +28,9 @@ module.exports = function (options) {
 
     // Override the original data
     hook.data = {
-      author: user._id,
-      email: user.email,
-      username: user.username,
+      _id,
+      email,
+      username,
       created_at: moment().unix()
     };
   };

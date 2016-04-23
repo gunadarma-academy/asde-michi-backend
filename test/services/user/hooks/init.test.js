@@ -22,9 +22,7 @@ describe('user init hook', () => {
         },
       },
       result: {},
-      data: {
-        email
-      }
+      data: {}
     };
 
     init()(mockHook);

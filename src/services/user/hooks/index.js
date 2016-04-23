@@ -19,20 +19,22 @@ exports.before = {
     auth.populateUser(),
     auth.restrictToAuthenticated()
   ],
-  create: [auth.hashPassword(), gravatar()],
+  create: [
+    auth.hashPassword(),
+    gravatar(),
+    init()
+  ],
   update: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    auth.restrictToOwner({ ownerField: '_id' }),
-    init()
+    auth.restrictToOwner({ ownerField: '_id' })
   ],
   patch: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    auth.restrictToOwner({ ownerField: '_id' }),
-    init()
+    auth.restrictToOwner({ ownerField: '_id' })
   ],
   remove: [
     auth.verifyToken(),
