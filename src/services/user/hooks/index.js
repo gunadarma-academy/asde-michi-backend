@@ -21,8 +21,8 @@ exports.before = {
   ],
   create: [
     auth.hashPassword(),
-    init(),
-    gravatar()
+    gravatar(),
+    init()
   ],
   update: [
     auth.verifyToken(),

@@ -1,10 +1,5 @@
 'use strict';
 
-// src/services/user/hooks/edit.js
-//
-// Use this hook to manipulate incoming or outgoing data.
-// For more information on hooks see: http://docs.feathersjs.com/hooks/readme.html
-
 const defaults = {};
 const moment = require('moment');
 

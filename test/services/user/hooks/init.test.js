@@ -26,6 +26,7 @@ describe('user init hook', () => {
     init()(mockHook);
 
     assert.deepEqual(mockHook.data, {
+      
       created_at: moment().unix()
     });
   });
