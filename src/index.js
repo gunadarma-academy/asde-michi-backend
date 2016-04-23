@@ -13,7 +13,7 @@ const app = feathers();
 
 app.configure(configuration(path.join(__dirname, '..')));
 const PUBLIC = path.join(path.join(__dirname, '../public/'));
-winston.info("PUBLIC PATH:", PUBLIC);
+winston.info('PUBLIC PATH:', PUBLIC);
 
 // Configure the express
 app.use(compress())
