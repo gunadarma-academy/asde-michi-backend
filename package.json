@@ -11,7 +11,7 @@
     "start:production": "pm2 start ecosystem.json --watch --env production",
     "start:frontend": "cd frontend && pm2 start ecosystem.json --watch",
     "stop": "pm2 stop ecosystem.json",
-    "delete": "pm2 delete arlin-backend",
+    "delete": "pm2 delete arlin:backend",
     "push": "git push origin && git push origin --tags",
     "jshint": "jshint src/. test/. --config",
     "mocha": "mocha test/. --recursive",
