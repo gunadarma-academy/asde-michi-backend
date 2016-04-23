@@ -1,34 +1,38 @@
 'use strict';
 
+
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
 const gravatar = require('./gravatar');
+const init = require('./init');
 
 exports.before = {
   all: [],
   find: [
-    // auth.verifyToken(),
-    auth.populateUser()
-    // auth.restrictToAuthenticated()
+    auth.verifyToken(),
+    auth.populateUser(),
+    auth.restrictToAuthenticated()
   ],
   get: [
-    // auth.verifyToken(),
-    auth.populateUser()
-    // auth.restrictToAuthenticated()
+    auth.verifyToken(),
+    auth.populateUser(),
+    auth.restrictToAuthenticated()
   ],
   create: [auth.hashPassword(), gravatar()],
   update: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    auth.restrictToOwner({ ownerField: '_id' })
+    auth.restrictToOwner({ ownerField: '_id' }),
+    init()
   ],
   patch: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    auth.restrictToOwner({ ownerField: '_id' })
+    auth.restrictToOwner({ ownerField: '_id' }),
+    init()
   ],
   remove: [
     auth.verifyToken(),
