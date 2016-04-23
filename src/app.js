@@ -39,3 +39,5 @@ const server = app.listen(port, host);
 server.on('listening', () =>
   console.log(`Arlin backend app running at http://${host}:${port}`)
 );
+
+module.exports = app;
