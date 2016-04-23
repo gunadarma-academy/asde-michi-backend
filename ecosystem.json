@@ -6,9 +6,10 @@
    */
 
   apps: [
+
     {
       "name": "arlin:backend",
-      "script": "src/app",
+      "script": "src/app.js",
       "node_args": "--harmony",
       "watch": ["config", "src"],
       "ignore_watch": ["node_modules"],
@@ -37,7 +38,7 @@
 
     {
       "name": "arlin:frontend-depr",
-      "script": "src/index",
+      "script": "src/index.js",
       "node_args": "--harmony",
       "watch": ["config", "src", "public"],
       "ignore_watch": ["node_modules"],
