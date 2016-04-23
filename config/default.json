@@ -1,13 +1,13 @@
 {
   "host": "127.0.0.1",
   "port": 3030,
+  "url": "127.0.0.1:3030",
   "nedb": "../data/",
   "public": "../public/",
   "auth": {
     "token": {
       "secret": "SECRET"
     },
-    "successRedirect": "http://localhost:8080/home",
     "local": {}
   }
 }
