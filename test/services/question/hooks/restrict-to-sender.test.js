@@ -1,11 +1,11 @@
 'use strict';
 
 const assert = require('assert');
-const restrictToSender = require('../../../../src/services/question/hooks/restrict-to-sender.js');
+const restrictToAuthor = require('../../../../src/services/question/hooks/restrict-to-author.js');
 
-describe('question restrict-to-sender hook', () => {
+describe('question restrict-to-author hook', () => {
   it('returns a function', () => {
-    var hook = restrictToSender();
+    var hook = restrictToAuthor();
     assert.equal(typeof hook, 'function');
   });
 });

@@ -4,12 +4,12 @@ const assert = require('assert');
 const gravatar = require('../../../../src/services/user/hooks/gravatar.js');
 
 describe('user gravatar hook', () => {
-  it('returns a function', () => {
+  it('type of hook returns a function', () => {
     var hook = gravatar();
     assert.equal(typeof hook, 'function');
   });
 
-  it('returns a gravatar url', () => {
+  it('returns and adds a gravatar url', () => {
     const mockHook = {
       type: 'before',
       app: {},

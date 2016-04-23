@@ -7,12 +7,12 @@ const assert = require('assert');
 const moment = require('moment');
 
 describe('question init hook', () => {
-  it('returns a function', () => {
+  it('type of hook returns a function', () => {
     var hook = init();
     assert.equal(typeof hook, 'function');
   });
 
-  it('filters data as expected', () => {
+  it('create title and description (include user id as param)', () => {
     const mockHook = {
       type: 'before',
       app: {},

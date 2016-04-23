@@ -5,12 +5,12 @@ const assert = require('assert');
 const moment = require('moment');
 
 describe('user init hook', () => {
-  it('returns a function', () => {
+  it('type of hook returns a function', () => {
     var hook = init();
     assert.equal(typeof hook, 'function');
   });
 
-  it('filters data as expected', () => {
+  it('create id, email, username, adds created_at', () => {
     const mockHook = {
       type: 'before',
       app: {},

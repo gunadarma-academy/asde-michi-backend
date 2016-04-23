@@ -7,16 +7,20 @@ const assert = require('assert');
 const moment = require('moment');
 
 describe('question edit hook', () => {
-  it('returns a function', () => {
+  it('type of hook returns a function', () => {
     var hook = edit();
     assert.equal(typeof hook, 'function');
   });
 
-  it('filters data as expected', () => {
+  it('edit title and description (include user id as param)', () => {
     const mockHook = {
       type: 'before',
       app: {},
-      params: {},
+      params: {
+        user: {
+          _id: '123'
+        }
+      },
       result: {},
       data: {
         title: 'Jalan kaki di Jakarta',

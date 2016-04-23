@@ -9,7 +9,7 @@ const should = chai.should();
 
 chai.use(require('chai-datetime'));
 
-describe('Feathers application tests', function() {
+describe('Arlin backend application tests', function() {
   before(function(done) {
     this.server = app.listen(3333);
     this.server.once('listening', () => done());
@@ -36,7 +36,7 @@ describe('Feathers application tests', function() {
   describe('error 404', function() {
     it('shows a 404 HTML page', function(done) {
       request({
-        url: 'http://localhost:3030/path/to/nowhere',
+        url: 'http://localhost:3030/404',
         headers: {
           'Accept': 'text/html'
         }
@@ -49,7 +49,7 @@ describe('Feathers application tests', function() {
 
     it('shows a 404 JSON error without stack trace', function(done) {
       request({
-        url: 'http://localhost:3030/path/to/nowhere',
+        url: 'http://localhost:3030/404',
         json: true
       }, function(err, res, body) {
         assert.equal(res.statusCode, 404);

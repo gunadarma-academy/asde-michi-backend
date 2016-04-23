@@ -5,20 +5,18 @@ const assert = require('assert');
 const moment = require('moment');
 
 describe('user edit hook', () => {
-  it('returns a function', () => {
+  it('type of hook returns a function', () => {
     var hook = edit();
     assert.equal(typeof hook, 'function');
   });
 
-  it('adds update_at', () => {
+  it('edit email and username, adds updated_at', () => {
     const mockHook = {
       type: 'before',
       app: {},
       params: {
         user: {
           _id: '123',
-          email: 'admin@arlin.link',
-          username: 'admin'
         },
       },
       result: {},
