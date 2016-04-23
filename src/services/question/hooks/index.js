@@ -20,10 +20,22 @@ exports.before = {
   ],
   find: [],
   get: [],
-  create: [init()],
-  update: [hooks.remove('sent_by'), restrictToSender(), edit()],
-  patch: [hooks.remove('sent_by'), restrictToSender(), edit()],
-  remove: [restrictToSender()]
+  create: [
+    init()
+  ],
+  update: [
+    hooks.remove('sent_by'),
+    restrictToSender(),
+    edit()
+  ],
+  patch: [
+    hooks.remove('sent_by'),
+    restrictToSender(),
+    edit()
+  ],
+  remove: [
+    restrictToSender()
+  ]
 };
 
 exports.after = {

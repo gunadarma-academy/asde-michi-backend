@@ -2,8 +2,9 @@
 
 'use strict';
 
-const assert = require('assert');
 const init = require('../../../../src/services/question/hooks/init.js');
+const assert = require('assert');
+const moment = require('moment');
 
 describe('question init hook', () => {
   it('returns a function', () => {
@@ -33,7 +34,7 @@ describe('question init hook', () => {
       author: '123',
       title: 'Jalan kaki di Jakarta',
       description: 'Cara jalan kaki di Jakarta yang aman gimana ya?',
-      created_at: new Date().getTime()
+      created_at: moment().unix()
     });
   });
 });
