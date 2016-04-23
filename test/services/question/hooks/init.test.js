@@ -1,11 +1,11 @@
-// message/hooks/init.js
+// question/hooks/init.js
 
 'use strict';
 
 const assert = require('assert');
-const init = require('../../../../src/services/message/hooks/init.js');
+const init = require('../../../../src/services/question/hooks/init.js');
 
-describe('message init hook', () => {
+describe('question init hook', () => {
   it('returns a function', () => {
     var hook = init();
     assert.equal(typeof hook, 'function');
@@ -22,15 +22,17 @@ describe('message init hook', () => {
       },
       result: {},
       data: {
-        text: 'arlin&'
+        title: 'Jalan kaki di Jakarta',
+        description: 'Cara jalan kaki di Jakarta yang aman gimana ya?'
       }
     };
 
     init()(mockHook);
 
     assert.deepEqual(mockHook.data, {
-      text: 'arlin&amp;',
       author: '123',
+      title: 'Jalan kaki di Jakarta',
+      description: 'Cara jalan kaki di Jakarta yang aman gimana ya?',
       created_at: new Date().getTime()
     });
   });

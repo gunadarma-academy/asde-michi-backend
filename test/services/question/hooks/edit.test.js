@@ -1,11 +1,11 @@
-// message/hooks/edit.js
+// question/hooks/edit.js
 
 'use strict';
 
 const assert = require('assert');
-const edit = require('../../../../src/services/message/hooks/edit.js');
+const edit = require('../../../../src/services/question/hooks/edit.js');
 
-describe('message edit hook', () => {
+describe('question edit hook', () => {
   it('returns a function', () => {
     var hook = edit();
     assert.equal(typeof hook, 'function');
@@ -18,14 +18,16 @@ describe('message edit hook', () => {
       params: {},
       result: {},
       data: {
-        text: 'arlin&'
+        title: 'Jalan kaki di Jakarta',
+        description: 'Cara jalan kaki di Jakarta yang aman gimana ya?'
       }
     };
 
     edit()(mockHook);
 
     assert.deepEqual(mockHook.data, {
-      text: 'arlin&amp;',
+      title: 'Jalan kaki di Jakarta',
+      description: 'Cara jalan kaki di Jakarta yang aman gimana ya?',
       updated_at: new Date().getTime()
     });
   });

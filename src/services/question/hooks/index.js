@@ -3,11 +3,13 @@
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
-const process = require('./process');
 const restrictToSender = require('./restrict-to-sender');
-const populateSender = hooks.populate('sentBy', {
+const init = require('./init');
+const edit = require('./edit');
+
+const populateSender = hooks.populate('sent_by', {
   service: 'users',
-  field: 'userId'
+  field: 'author'
 });
 
 exports.before = {
@@ -18,9 +20,9 @@ exports.before = {
   ],
   find: [],
   get: [],
-  create: [process()],
-  update: [hooks.remove('sentBy'), restrictToSender()],
-  patch: [hooks.remove('sentBy'), restrictToSender()],
+  create: [init()],
+  update: [hooks.remove('sent_by'), restrictToSender(), edit()],
+  patch: [hooks.remove('sent_by'), restrictToSender(), edit()],
   remove: [restrictToSender()]
 };
 

@@ -1,4 +1,4 @@
-// message/hooks/init.js
+// question/hooks/edit.js
 
 'use strict';
 
@@ -9,17 +9,20 @@ module.exports = function (options) {
     // The authenticated user
     const user = hook.params.user;
 
-    // The actual message content
+    // The actual question content
     // Limit characters and do some basic HTML escaping
-    const text = hook.data.text
-      .substring(0, 400)
+    const title = hook.data.title
+      .substring(0, 140)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const description = hook.data.description
+      .substring(0, 1000)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
     // Override the original data
     hook.data = {
-      text,
-      author: user._id,
-      created_at: new Date().getTime()
+      title,
+      description,
+      updated_at: new Date().getTime()
     };
   };
 };

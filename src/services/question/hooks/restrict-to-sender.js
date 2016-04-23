@@ -12,10 +12,10 @@ module.exports = function (options) {
   return function (hook) {
     const questionService = hook.app.service('questions');
 
-    // First get the message that the user wants to access
+    // First get the question that the user wants to access
     return questionService.get(hook.id, hook.params).then(question => {
-      // Throw a not authenticated error if the message and user id don't match
-      if (question.sentBy._id !== hook.params.user._id) {
+      // Throw a not authenticated error if the question and user id don't match
+      if (question.sent_by._id !== hook.params.user._id) {
         throw new errors.NotAuthenticated('Access not allowed');
       }
 
