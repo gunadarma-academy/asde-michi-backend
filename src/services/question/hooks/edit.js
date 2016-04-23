@@ -3,6 +3,7 @@
 'use strict';
 
 const defaults = {};
+const moment = require('moment');
 
 module.exports = function (options) {
   return function (hook) {
@@ -22,7 +23,7 @@ module.exports = function (options) {
     hook.data = {
       title,
       description,
-      updated_at: new Date().getTime()
+      updated_at: moment().unix()
     };
   };
 };
