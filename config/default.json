@@ -7,7 +7,7 @@
     "token": {
       "secret": "SECRET"
     },
-    "successRedirect": "http://localhost:8080/app.html",
+    "successRedirect": "http://localhost:8080/home",
     "local": {}
   }
 }
