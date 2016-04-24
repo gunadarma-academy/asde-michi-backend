@@ -12,7 +12,7 @@ describe('question edit hook', () => {
     assert.equal(typeof hook, 'function');
   });
 
-  it('edit title and description (include user id as param)', () => {
+  it('edit title and description', () => {
     const mockHook = {
       type: 'before',
       app: {},
@@ -32,8 +32,7 @@ describe('question edit hook', () => {
 
     assert.deepEqual(mockHook.data, {
       title: 'Jalan kaki di Jakarta',
-      description: 'Cara jalan kaki di Jakarta yang aman gimana ya?',
-      updated_at: moment().unix()
+      description: 'Cara jalan kaki di Jakarta yang aman gimana ya?'
     });
   });
 });

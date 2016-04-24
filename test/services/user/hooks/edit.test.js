@@ -10,7 +10,7 @@ describe('user edit hook', () => {
     assert.equal(typeof hook, 'function');
   });
 
-  it('edit email and username, adds updated_at', () => {
+  it('edit email and username', () => {
     const mockHook = {
       type: 'before',
       app: {},
@@ -30,8 +30,7 @@ describe('user edit hook', () => {
 
     assert.deepEqual(mockHook.data, {
       email: 'administrator@arlin.link',
-      username: 'administrator',
-      updated_at: moment().valueOf()
+      username: 'administrator'
     });
   });
 });

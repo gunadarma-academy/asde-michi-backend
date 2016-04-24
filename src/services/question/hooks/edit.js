@@ -1,29 +1,27 @@
-// question/hooks/edit.js
-
 'use strict';
 
 const defaults = {};
 const moment = require('moment');
 
+module.exports = function(options) {
+  options = Object.assign({}, defaults, options);
+
+  return function(hook) {
+    hook.init = true;
+  };
+};
+
 module.exports = function (options) {
   return function (hook) {
     // The authenticated user
     const user = hook.params.user;
-
-    // The actual question content
-    // Limit characters and do some basic HTML escaping
-    const title = hook.data.title
-      .substring(0, 140)
-      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    const description = hook.data.description
-      .substring(0, 1000)
-      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const title = hook.data.title;
+    const description = hook.data.description;
 
     // Override the original data
     hook.data = {
       title,
-      description,
-      updated_at: moment().unix()
+      description
     };
   };
 };

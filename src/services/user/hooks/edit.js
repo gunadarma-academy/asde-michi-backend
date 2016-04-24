@@ -21,8 +21,7 @@ module.exports = function (options) {
     // Override the original data
     hook.data = {
       email,
-      username,
-      updated_at: moment().valueOf()
+      username
     };
   };
 };
