@@ -8,8 +8,8 @@
   apps: [
 
     {
-      "name": "arlin:backend",
-      "script": "src/app.js",
+      "name": "arlin:client",
+      "script": "src/server.js",
       "node_args": "--harmony",
       "watch": ["config", "src"],
       "ignore_watch": ["node_modules"],
@@ -37,8 +37,8 @@
     },
 
     {
-      "name": "arlin:frontend-depr",
-      "script": "src/index.js",
+      "name": "arlin:client-legacy",
+      "script": "src/client.js",
       "node_args": "--harmony",
       "watch": ["config", "src", "public"],
       "ignore_watch": ["node_modules"],

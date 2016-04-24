@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const app = require('../../../src/app');
+const app = require('../../../src/server');
 
 describe('quote service', function () {
   it('registered the quotes service', () => {

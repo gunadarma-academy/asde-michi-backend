@@ -9,14 +9,14 @@ const winston = require('winston');
 const serveStatic = require('feathers').static;
 const favicon = require('serve-favicon');
 
-const app = feathers();
+const client = feathers();
 
-app.configure(configuration(path.join(__dirname, '..')));
+client.configure(configuration(path.join(__dirname, '..')));
 const PUBLIC = path.join(path.join(__dirname, '../public/'));
 winston.info('PUBLIC PATH:', PUBLIC);
 
 // Configure the express
-app.use(compress())
+client.use(compress())
   .options('*', cors())
   .use(cors())
   .use(favicon(path.join(PUBLIC, 'favicon.ico')))
@@ -29,13 +29,13 @@ app.use(compress())
   .get('/home', function (req, res) {
     res.sendFile(PUBLIC + 'home.html');
   })
-  .use('/', serveStatic(app.get('public')));
+  .use('/', serveStatic(client.get('public')));
 
 
 const HOST = '127.0.0.1';
 const PORT = 8080;
 
-const server = app.listen(PORT, HOST, err => {
+const server = client.listen(PORT, HOST, err => {
   if (err) {
     console.log(err);
     return;
@@ -46,4 +46,4 @@ const server = app.listen(PORT, HOST, err => {
   winston.info(`Arlin frontend app running at http://${host}:${port}`);
 });
 
-module.exports = app;
+module.exports = client;

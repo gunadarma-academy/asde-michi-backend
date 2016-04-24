@@ -15,4 +15,4 @@ ENV GITHUB_CLIENT_ID 'client id'
 ENV GITHUB_CLIENT_SECRET 'client secret'
 RUN npm install --production
 CMD ["node", "src/index.js"]
-CMD ["node", "src/app.js"]
+CMD ["node", "src/server.js"]

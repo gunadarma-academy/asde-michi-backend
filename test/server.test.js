@@ -1,13 +1,13 @@
 'use strict';
 
-const app = require('../src/app');
+const app = require('../src/server');
 const request = require('request');
 const chai = require('chai');
 const expect = chai.expect;
 const assert = chai.assert;
 const should = chai.should();
 
-describe('Arlin backend application tests', function () {
+describe('Arlin backend/server application tests', function () {
   before(function (done) {
     this.server = app.listen(3333);
     this.server.once('listening', () => done());
