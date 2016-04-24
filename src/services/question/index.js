@@ -1,20 +1,27 @@
 'use strict';
 
-const path = require('path');
-const NeDB = require('nedb');
-const service = require('feathers-nedb');
+// Use for NeDB
+// const path = require('path');
+// const NeDB = require('nedb');
+// const service = require('feathers-nedb');
+// const hooks = require('./hooks');
+
+// Use for MongoDB
+const service = require('feathers-mongoose');
+const question = require('./question-model');
 const hooks = require('./hooks');
 
-module.exports = function(){
+module.exports = function() {
   const app = this;
 
-  const db = new NeDB({
-    filename: path.join(app.get('nedb'), 'questions.db'),
-    autoload: true
-  });
+  // Use for NeDB
+  // const db = new NeDB({
+  //   filename: path.join(app.get('nedb'), 'questions.db'),
+  //   autoload: true
+  // });
 
-  let options = {
-    Model: db,
+  const options = {
+    Model: question,
     paginate: {
       default: 5,
       max: 25
