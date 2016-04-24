@@ -11,13 +11,13 @@ exports.before = {
   all: [],
   find: [
     auth.verifyToken(),
-    auth.requireAuth(),
-    auth.populateUser()
+    auth.populateUser(),
+    auth.restrictToAuthenticated()
   ],
   get: [
     auth.verifyToken(),
     auth.populateUser(),
-    auth.requireAuth()
+    auth.restrictToAuthenticated()
   ],
   create: [
     auth.hashPassword(),
@@ -27,21 +27,21 @@ exports.before = {
   update: [
     auth.verifyToken(),
     auth.populateUser(),
-    auth.requireAuth(),
+    auth.restrictToAuthenticated(),
     auth.restrictToOwner({ ownerField: '_id' }),
     edit()
   ],
   patch: [
     auth.verifyToken(),
     auth.populateUser(),
-    auth.requireAuth(),
+    auth.restrictToAuthenticated(),
     auth.restrictToOwner({ ownerField: '_id' }),
     edit()
   ],
   remove: [
     auth.verifyToken(),
     auth.populateUser(),
-    auth.requireAuth(),
+    auth.restrictToAuthenticated(),
     auth.restrictToOwner({ ownerField: '_id' })
   ]
 };
