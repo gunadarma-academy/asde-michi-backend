@@ -3,9 +3,8 @@
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
-const init = require('./init');
-const edit = require('./edit');
 const gravatar = require('./gravatar');
+const edit = require('./edit');
 
 exports.before = {
   all: [],
@@ -21,7 +20,6 @@ exports.before = {
   ],
   create: [
     auth.hashPassword(),
-    init(),
     gravatar()
   ],
   update: [
