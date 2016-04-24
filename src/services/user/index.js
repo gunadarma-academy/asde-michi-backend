@@ -39,4 +39,19 @@ module.exports = function() {
 
   // Set up our after hooks
   userService.after(hooks.after);
+
+  // Create admin user that we can use to sign in quickly
+  const admin = app.get('admin');
+  const AdminData = {
+    username: admin.username,
+    email: admin.email,
+    password: admin.password
+  };
+
+  console.log(AdminData);
+
+  userService.create(AdminData, {}).then(function(user) {
+    console.log('Created admin user', user);
+  });
+
 };

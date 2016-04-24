@@ -5,10 +5,17 @@
   "mongodb": "mongodb://localhost:27017/arlin",
   "nedb": "../data/",
   "public": "../public/",
+  "admin": {
+    "username": "admin",
+    "email": "admin@arlin.link",
+    "password": "secretpassword"
+  },
   "auth": {
     "token": {
       "secret": "hEDD9FCKBacJ9VIIdag98w3zFg39Fi9ie8WFHqfdosEXDZ6NVoa6DJSSPa8s2beibXh3L/P2Nj16rZ8WCON7xw=="
     },
-    "local": {}
+    "local": {
+      "userEndpoint": "/users"
+    }
   }
 }
