@@ -7,5 +7,6 @@ module.exports = function() {
 
   let config = app.get('auth');
 
+  app.set('auth', config);
   app.configure(authentication(config));
 };

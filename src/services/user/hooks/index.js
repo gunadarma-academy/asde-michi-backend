@@ -3,21 +3,21 @@
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
-const gravatar = require('./gravatar');
 const init = require('./init');
 const edit = require('./edit');
+const gravatar = require('./gravatar');
 
 exports.before = {
   all: [],
   find: [
     auth.verifyToken(),
-    auth.restrictToAuthenticated(),
+    auth.requireAuth(),
     auth.populateUser()
   ],
   get: [
     auth.verifyToken(),
-    auth.restrictToAuthenticated(),
-    auth.populateUser()
+    auth.populateUser(),
+    auth.requireAuth()
   ],
   create: [
     auth.hashPassword(),
@@ -27,27 +27,29 @@ exports.before = {
   update: [
     auth.verifyToken(),
     auth.populateUser(),
-    auth.restrictToAuthenticated(),
+    auth.requireAuth(),
     auth.restrictToOwner({ ownerField: '_id' }),
     edit()
   ],
   patch: [
     auth.verifyToken(),
     auth.populateUser(),
-    auth.restrictToAuthenticated(),
+    auth.requireAuth(),
     auth.restrictToOwner({ ownerField: '_id' }),
     edit()
   ],
   remove: [
     auth.verifyToken(),
     auth.populateUser(),
-    auth.restrictToAuthenticated(),
+    auth.requireAuth(),
     auth.restrictToOwner({ ownerField: '_id' })
   ]
 };
 
 exports.after = {
-  all: [hooks.remove('password')],
+  all: [
+    // hooks.remove('password')
+  ],
   find: [],
   get: [],
   create: [],
