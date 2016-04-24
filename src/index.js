@@ -21,13 +21,13 @@ app.use(compress())
   .use(cors())
   .use(favicon(path.join(PUBLIC, 'favicon.ico')))
   .get('/signup', function (req, res) {
-    res.sendfile(PUBLIC  + 'signup.html');
+    res.sendFile(PUBLIC  + 'signup.html');
   })
   .get('/signin', function (req, res) {
-    res.sendfile(PUBLIC + 'signin.html');
+    res.sendFile(PUBLIC + 'signin.html');
   })
   .get('/home', function (req, res) {
-    res.sendfile(PUBLIC + 'home.html');
+    res.sendFile(PUBLIC + 'home.html');
   })
   .use('/', serveStatic(app.get('public')));
 

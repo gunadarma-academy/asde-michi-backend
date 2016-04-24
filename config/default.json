@@ -2,11 +2,12 @@
   "host": "127.0.0.1",
   "port": 3030,
   "url": "127.0.0.1:3030",
+  "mongodb": "mongodb://localhost:27017/arlin",
   "nedb": "../data/",
   "public": "../public/",
   "auth": {
     "token": {
-      "secret": "SECRET"
+      "secret": "hEDD9FCKBacJ9VIIdag98w3zFg39Fi9ie8WFHqfdosEXDZ6NVoa6DJSSPa8s2beibXh3L/P2Nj16rZ8WCON7xw=="
     },
     "local": {}
   }

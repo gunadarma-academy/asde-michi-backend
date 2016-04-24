@@ -11,7 +11,7 @@ module.exports = function (app) {
         password: body.password
       })
       // Then redirect to the login page if necessary
-      // .then(user => res.redirect('/signin'))
+      .then(user => res.redirect('http://localhost:8080/signin'))
       // On errors, just call our error middleware
       .catch(next);
   };
