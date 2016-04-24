@@ -31,7 +31,7 @@ describe('user edit hook', () => {
     assert.deepEqual(mockHook.data, {
       email: 'administrator@arlin.link',
       username: 'administrator',
-      updated_at: moment().unix()
+      updated_at: moment().valueOf()
     });
   });
 });
