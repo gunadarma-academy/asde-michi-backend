@@ -1,6 +1,8 @@
 {
   "host": "arlin.link",
   "port": 3030,
+  "url": "arlin.link",
+  "mongodb": "mongodb://localhost:27017/arlin",
   "nedb": "NEDB_BASE_PATH",
   "public": "../public/",
   "auth": {

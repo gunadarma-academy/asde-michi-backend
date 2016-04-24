@@ -1,6 +1,8 @@
 {
   "host": "staging.arlin.link",
   "port": 3030,
+  "url": "staging.arlin.link",
+  "mongodb": "mongodb://localhost:27017/arlin-staging",
   "nedb": "NEDB_BASE_PATH",
   "public": "../public/",
   "auth": {

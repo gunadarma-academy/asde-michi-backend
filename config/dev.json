@@ -1,11 +1,13 @@
 {
   "host": "127.0.0.1",
   "port": 3030,
+  "url": "dev.arlin.link",
+  "mongodb": "mongodb://localhost:27017/arlin-dev",
   "nedb": "NEDB_BASE_PATH",
   "public": "../public/",
   "auth": {
     "token": {
-      "secret": "SECRET"
+      "secret": "FEATHERS_SECRET"
     },
     "local": {}
   }
