@@ -32,11 +32,11 @@ const userSchema = new Schema({
   },
   created_at: {
     type: Date,
-    'default': Date.now
+    'default': moment().valueOf()
   },
   updated_at: {
     type: Date,
-    'default': Date.now
+    'default': moment().valueOf()
   }
 });
 

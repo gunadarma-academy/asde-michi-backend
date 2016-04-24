@@ -20,21 +20,18 @@ exports.before = {
   ],
   create: [
     auth.hashPassword(),
-    gravatar()
   ],
   update: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
     auth.restrictToOwner({ ownerField: '_id' }),
-    edit()
   ],
   patch: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
     auth.restrictToOwner({ ownerField: '_id' }),
-    edit()
   ],
   remove: [
     auth.verifyToken(),
@@ -46,12 +43,18 @@ exports.before = {
 
 exports.after = {
   all: [
-    // hooks.remove('password')
+    hooks.remove('password')
   ],
   find: [],
   get: [],
-  create: [],
-  update: [],
-  patch: [],
+  create: [
+    gravatar()
+  ],
+  update: [
+    edit()
+  ],
+  patch: [
+    edit()
+  ],
   remove: []
 };
