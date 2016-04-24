@@ -3,7 +3,6 @@
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
-const gravatar = require('./gravatar');
 const edit = require('./edit');
 
 exports.before = {
@@ -47,9 +46,7 @@ exports.after = {
   ],
   find: [],
   get: [],
-  create: [
-    gravatar()
-  ],
+  create: [],
   update: [
     edit()
   ],

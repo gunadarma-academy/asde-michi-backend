@@ -8,6 +8,7 @@
 const moment = require('moment');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const gravatar = require('./hooks/gravatar');
 
 const userSchema = new Schema({
   email: {
@@ -23,6 +24,10 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  gravatar: {
+    // 'default': gravatar(email),
+    type: String
   },
   meta: {
     twitter: {

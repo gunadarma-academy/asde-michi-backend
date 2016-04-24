@@ -9,16 +9,26 @@ const query = `s=60`;
 // Returns a full URL to a Gravatar image for a given email address
 const gravatarImage = email => {
   // Gravatar uses MD5 hashes from an email address to get the image
-  const hash = crypto.createHash('md5').update(email).digest('hex');
-
+  const hash = crypto.createHash('md5')
+    .update(email)
+    .digest('hex');
   return `${gravatarUrl}/${hash}?${query}`;
 };
 
-module.exports = function () {
-  return function (hook) {
-    // Assign the new data with the Gravatar image
-    hook.data = Object.assign({}, hook.data, {
-      avatar: gravatarImage(hook.data.email)
-    });
+// If used with mongoose model
+module.exports = function (email) {
+  return function (email) {
+    // Return the Gravatar image
+    gravatarImage(email);
   };
 };
+
+// If used for hook
+// module.exports = function () {
+//   return function (hook) {
+//     // Assign the new data with the Gravatar image
+//     hook.data = Object.assign({}, hook.data, {
+//       avatar: gravatarImage(hook.data.email)
+//     });
+//   };
+// };
