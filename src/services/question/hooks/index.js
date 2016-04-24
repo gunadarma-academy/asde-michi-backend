@@ -6,6 +6,7 @@ const auth = require('feathers-authentication').hooks;
 const globalHooks = require('../../../hooks');
 const edit = require('./edit');
 const restrictToAuthor = require('./restrict-to-author');
+const setAuthor = require('./set-author');
 
 const populateAuthor = hooks.populate('sent_by', {
   service: 'users',
@@ -20,7 +21,9 @@ exports.before = {
   ],
   find: [],
   get: [],
-  create: [],
+  create: [
+    setAuthor()
+  ],
   update: [
     hooks.remove('sent_by'),
     restrictToAuthor(),
@@ -33,7 +36,8 @@ exports.before = {
   ],
   remove: [
     restrictToAuthor()
-  ]
+  ],
+  addToCollection: [setAuthor]
 };
 
 exports.after = {

@@ -5,21 +5,26 @@ const defaults = {};
 module.exports = function (options) {
   options = Object.assign({}, defaults, options);
   return function (hook) {
-    hook.edit = true;
+    hook.setAuthor = true;
   };
 };
 
 module.exports = function (options) {
   return function (hook) {
-    // The authenticated user
     const user = hook.params.user;
-    const title = hook.data.title;
-    const description = hook.data.description;
+    // const question = hook.data;
 
-    // Override the original data
     hook.data = {
-      title,
-      description
+      author: user
     };
+  };
+};
+
+
+exports.addUpdatedAt = function(options) {
+  options = Object.assign({}, defaults, options);
+  // Override selected data
+  return function(hook) {
+    hook.addUpdatedAt = true;
   };
 };

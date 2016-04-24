@@ -1,5 +1,3 @@
-// question/hooks/edit.js
-
 'use strict';
 
 const edit = require('../../../../src/services/question/hooks/edit.js');

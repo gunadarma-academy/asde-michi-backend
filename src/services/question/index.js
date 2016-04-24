@@ -39,4 +39,17 @@ module.exports = function() {
 
   // Set up our after hooks
   questionService.after(hooks.after);
+
+  // // Create the first question by admin
+  // const AdminQuestion = {
+  //   author: '',
+  //   title: '',
+  //   description: '',
+  // };
+  //
+  // console.log(AdminData);
+  //
+  // userService.create(AdminData, {}).then(function(user) {
+  //   console.log('Created admin user', user);
+  // });
 };

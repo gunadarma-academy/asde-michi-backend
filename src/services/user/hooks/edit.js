@@ -7,7 +7,7 @@ module.exports = function(options) {
   options = Object.assign({}, defaults, options);
 
   return function(hook) {
-    hook.init = true;
+    hook.edit = true;
   };
 };
 

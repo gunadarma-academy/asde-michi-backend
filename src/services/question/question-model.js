@@ -9,6 +9,30 @@ const moment = require('moment');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const answerSchema = new Schema({
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: 'user',
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  meta: {
+    url: String,
+    score: Number
+  },
+  created_at: {
+    type: Date,
+    'default': moment().valueOf()
+  },
+  updated_at: {
+    type: Date,
+    'default': moment().valueOf()
+  }
+});
+
 const questionSchema = new Schema({
   author: {
     type: Schema.Types.ObjectId,
@@ -23,6 +47,7 @@ const questionSchema = new Schema({
     type: String,
     required: true
   },
+  answers: [answerSchema],
   meta: {
     answer_count: Number,
     answered: Boolean,
