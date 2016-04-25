@@ -30,7 +30,12 @@ app.use(compress())
   .configure(rest())
   .configure(socketio())
   .configure(services)
-  .configure(middleware);
+  .configure(middleware)
+  .use(function (req, res, next) {
+    // Inject the current user into feathers params
+    req.feathers.user = req.session.user;
+    next();
+  });
 
 const port = app.get('port');
 const host = app.get('host');
